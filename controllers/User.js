@@ -8,7 +8,7 @@ import bcrypt from 'bcryptjs';
 export const sendPasswordReset = async(req, res, next) =>{
     try {
         
-        const resend = new Resend('re_VBc5AjAZ_8C6gLxu5kA8NJQHHEjD1i8wi');
+        const resend = new Resend('re_XLAShi2A_4Dn3GovNPx3ZemwRUgDgpWnA');
 
         await resend.emails.send({
         from: 'yourpiwebsite',
