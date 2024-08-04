@@ -13,6 +13,14 @@ dotenv.config();
 app.use(cookieParser());
 app.use(express.json());
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://www.pimarketplacedigital.com');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+  });
+
 app.use("/api/users", userRoutes); 
 app.use((err, req, res, next)=>{
     const status = err.status || 500;
@@ -24,13 +32,7 @@ app.use((err, req, res, next)=>{
 
     }) 
 })
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://www.pimarketplacedigital.com');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    next();
-  });
+
 
 app.listen(8800, ()=>{  
 
